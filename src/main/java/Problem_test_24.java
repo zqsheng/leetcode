@@ -1,0 +1,31 @@
+import javax.swing.*;
+
+public class Problem_test_24 {
+    public static void main(String[] args) {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+
+        ListNode.print(reverseList(node1));
+    }
+
+    public static ListNode reverseList(ListNode head) {
+        ListNode dummay = new ListNode(0);
+        dummay.next = head;
+        ListNode curr = head,preNode = null;
+        while (curr.next != null) {
+            ListNode temp = curr.next.next;
+            curr.next = preNode;
+            curr.next = curr;
+            preNode = curr;
+            curr = temp;
+        }
+        return curr;
+    }
+}
