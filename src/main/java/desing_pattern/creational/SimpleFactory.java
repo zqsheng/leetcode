@@ -1,5 +1,7 @@
 package desing_pattern.creational;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.management.MonitorInfo;
 
 /**
@@ -8,6 +10,7 @@ import java.lang.management.MonitorInfo;
  * @author zhangqisheng
  */
 public class SimpleFactory {
+
     /**
      * 工厂类
      */
@@ -29,19 +32,32 @@ public class SimpleFactory {
     /*
      *
      */
-    private interface Vehicle {
+    private static class Vehicle {
 
     }
     /**
      * 产品类
      */
-    private static class Car implements Vehicle {
-
+    private static class Car extends Vehicle {
+        public Car() {
+            System.out.println("生产小汽车");
+        }
     }
-    private static class Bus implements Vehicle {
-
+    private static class Bus extends Vehicle {
+        public Bus() {
+            System.out.println("生产公交车");
+        }
     }
-    private static class Motorbike implements Vehicle {
+    private static class Motorbike extends Vehicle {
+        public Motorbike() {
+            System.out.println("生产摩托车");
+        }
+    }
 
+    public static void main(String[] args) {
+        VehicleFactory factory = new VehicleFactory();
+        Vehicle car = factory.getVehicle(1);
+        Vehicle bus = factory.getVehicle(2);
+        Vehicle motorbike = factory.getVehicle(3);
     }
 }
