@@ -1,5 +1,5 @@
 import java.util.Arrays;
-
+// fizz buzz
 public class P_1 {
 
     public  static String[] fizzBuzz(int n) {
@@ -8,7 +8,6 @@ public class P_1 {
             String s = null;
             if ( i % 3 == 0 && i % 5 == 0) {
                 s = "FizzBuzz";
-
             } else if (i % 3 == 0) {
                 s = "Fizz";
             } else  if (i % 5 == 0) {
